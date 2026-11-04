@@ -205,3 +205,19 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body{overflow-x:clip}.wrap
  .booking-request-dialog .booking-form{gap:6px;padding:7px}
  .booking-request-dialog .booking-field input,.booking-request-dialog .booking-field select{font-size:10px;padding-inline:5px}
 }
+
+/* Pincode helper and same-browser demo tracking. */
+.booking-request-dialog .pincode-check{align-self:flex-start;border:1px solid #d8dfd5;background:#edf1e9;color:var(--green);border-radius:5px;padding:6px 9px;font:600 10px/1.2 var(--sans);cursor:pointer}
+.booking-request-dialog .pincode-status{min-height:0;margin:0;color:var(--muted);font-size:9px;line-height:1.35}
+.booking-request-dialog .pincode-status[data-state="valid"]{color:#285b43}
+.booking-request-dialog .pincode-status[data-state="invalid"]{color:#a43d31}
+.demo-track-form{margin-top:13px;padding-top:12px;border-top:1px solid var(--line)}
+.demo-track-form>label{display:block;margin-bottom:7px;color:var(--green);font-size:10px;font-weight:700}
+.demo-track-form>div{display:flex;gap:7px}
+.demo-track-form input{min-width:0;flex:1;border:1px solid #d6dbd5;border-radius:5px;padding:8px 10px;font:12px var(--sans);background:#fff}
+.demo-track-form button{border:0;border-radius:5px;padding:8px 12px;background:var(--green);color:#fff;font:600 11px var(--sans);cursor:pointer}
+.track-result{margin:8px 0 0;color:var(--muted);font-size:10px;line-height:1.5}
+.track-result strong{color:var(--ink)}
+@media(max-width:640px){.demo-track-form>div{gap:5px}.demo-track-form input{font-size:11px;padding:7px}.demo-track-form button{padding:7px 10px}}
+.track-result{white-space:pre-line}
+.story-visual{isolation:isolate;background:#dfe8dc}.story-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 44%;display:block}.story-visual .visual-tag{box-shadow:0 3px 12px rgba(20,40,32,.1);background:rgba(255,254,250,.94)}
