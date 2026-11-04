@@ -221,3 +221,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body{overflow-x:clip}.wrap
 @media(max-width:640px){.demo-track-form>div{gap:5px}.demo-track-form input{font-size:11px;padding:7px}.demo-track-form button{padding:7px 10px}}
 .track-result{white-space:pre-line}
 .story-visual{isolation:isolate;background:#dfe8dc}.story-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 44%;display:block}.story-visual .visual-tag{box-shadow:0 3px 12px rgba(20,40,32,.1);background:rgba(255,254,250,.94)}
+
+/* City landmark cards: consistent, crisp photo framing */
+.city-photo{object-fit:cover;object-position:50% 45%;image-rendering:auto;filter:contrast(1.07) saturate(1.08);backface-visibility:hidden}
+@media(max-width:640px){.city-photo{object-position:center 44%}}
