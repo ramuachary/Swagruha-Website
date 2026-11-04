@@ -173,3 +173,27 @@ updatePrepProgress=function(language){const copy=prepTranslations[language]||pre
 function updatePrepAccessibility(language){const text=language==='te'?'సేవ కోసం సిద్ధమయ్యే అంశాలను ఎంచుకోండి':language==='hi'?'सेवा की तैयारी के लिए काम चुनें':'Choose a service to prepare for';document.querySelector('.prep-service-tabs').setAttribute('aria-label',text)}
 document.querySelectorAll('.language-switch button').forEach(button=>button.addEventListener('click',()=>updatePrepAccessibility(button.dataset.lang)));
 updatePrepChecklist(document.documentElement.lang.startsWith('te')?'te':document.documentElement.lang.startsWith('hi')?'hi':'en');
+
+/* Localize landmark captions when visitors switch the site language. */
+const cityLandmarkLocales={
+visakhapatnam:{en:'Kailasagiri & Bay of Bengal',te:'కైలాసగిరి, బంగాళాఖాతం',hi:'कैलासगिरि और बंगाल की खाड़ी'},
+hyderabad:{en:'Charminar',te:'చార్మినార్',hi:'चारमीनार'},
+brahmapur:{en:'Gopalpur Sea Beach',te:'గోపాల్పూర్ సముద్రతీరం',hi:'गोपालपुर समुद्र तट'},
+bhubaneswar:{en:'Lingaraj Temple',te:'లింగరాజ ఆలయం',hi:'लिंगराज मंदिर'},
+indore:{en:'Rajwada Palace',te:'రాజ్వాడా ప్యాలెస్',hi:'राजवाड़ा महल'},
+guntur:{en:'Jinnah Tower',te:'జిన్నా టవర్',hi:'जिन्ना टावर'},
+nashik:{en:'Ramkund',te:'రామ్‌కుండ్',hi:'रामकुंड'},
+mumbai:{en:'Gateway of India',te:'గేట్‌వే ఆఫ్ ఇండియా',hi:'गेटवे ऑफ इंडिया'},
+bangalore:{en:'Vidhana Soudha',te:'విధాన సౌధ',hi:'विधान सौधा'},
+chennai:{en:'Marina Beach',te:'మెరీనా బీచ్',hi:'मरीना बीच'},
+delhi:{en:'India Gate',te:'ఇండియా గేట్',hi:'इंडिया गेट'},
+vijayawada:{en:'Kanaka Durga Temple',te:'కనకదుర్గ ఆలయం',hi:'कनक दुर्गा मंदिर'}
+};
+function syncCityLandmarkLocale(language){
+ const lang=language==='te'?'te':language==='hi'?'hi':'en';
+ document.querySelectorAll('.city-landmark[data-landmark]').forEach(node=>{const entry=cityLandmarkLocales[node.dataset.landmark];if(entry)node.textContent=entry[lang]});
+ const credits=document.querySelector('.landmark-credits summary');
+ if(credits)credits.textContent=lang==='te'?'ఫోటో క్రెడిట్లు, లైసెన్స్':lang==='hi'?'फ़ोटो क्रेडिट और लाइसेंस':'Photo sources & licenses';
+}
+document.querySelectorAll('.language-switch button').forEach(button=>button.addEventListener('click',()=>syncCityLandmarkLocale(button.dataset.lang)));
+syncCityLandmarkLocale(document.documentElement.lang.startsWith('te')?'te':document.documentElement.lang.startsWith('hi')?'hi':'en');
